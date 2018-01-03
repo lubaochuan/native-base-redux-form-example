@@ -25,6 +25,9 @@ const validate = values => {
   if(nm.length > 8){
     error.name= 'max 8 characters';
   }
+  if(nm.replace(/^\s+|\s+$/gm,'').length == 0){
+    error.name= 'cannot be empty';
+  }
   return error;
 };
 
@@ -58,8 +61,8 @@ class SimpleForm extends Component {
   }
 
   render(){
-     const { handleSubmit, reset } = this.props;
-     if (!this.state.isReady) {
+    const { handleSubmit, reset } = this.props;
+    if (!this.state.isReady) {
       return <Expo.AppLoading />;
     }
     return (
@@ -72,8 +75,11 @@ class SimpleForm extends Component {
         <Content padder>
           <Field name="email" component={this.renderInput} />
           <Field name="name" component={this.renderInput} />
-          <Button block primary onPress= {reset}>
+          <Button block primary onPress={handleSubmit}>
             <Text>Submit</Text>
+          </Button>
+          <Button block primary onPress={reset}>
+            <Text>Reset</Text>
           </Button>
         </Content>
       </Container>
