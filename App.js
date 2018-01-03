@@ -1,21 +1,16 @@
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React , { Component } from 'react';
+import allReducers from './src/reducers/index.js';
+import {createStore} from 'redux';
+import {Provider} from 'react-redux';
+import SimpleForm from './src/components/SimpleForm.js';
+const store = createStore(allReducers);
 
-export default class App extends React.Component {
-  render() {
-    return (
-      <View style={styles.container}>
-        <Text>Open up App.js to start working on your app!</Text>
-      </View>
-    );
+export default class App extends Component{
+  render(){
+    return(
+      <Provider store= {store}>
+        <SimpleForm />
+      </Provider>
+    )
   }
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});

@@ -3,7 +3,11 @@
   "private": true,
   "dependencies": {
     "expo": "^24.0.0",
+    "native-base": "^2.3.5",
     "react": "16.0.0",
-    "react-native": "https://github.com/expo/react-native/archive/sdk-24.0.0.tar.gz"
+    "react-native": "https://github.com/expo/react-native/archive/sdk-24.0.0.tar.gz",
+    "react-redux": "^5.0.6",
+    "redux": "^3.7.2",
+    "redux-form": "^7.2.0"
   }
 }
