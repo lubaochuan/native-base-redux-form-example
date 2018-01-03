@@ -34,8 +34,8 @@ class SimpleForm extends Component {
     this.state={
       isReady: false
     };
-    this.renderInput = this.renderInput.bind(this);
   }
+
   async componentWillMount() {
       await Expo.Font.loadAsync({
         'Roboto': require('native-base/Fonts/Roboto.ttf'),
@@ -43,7 +43,8 @@ class SimpleForm extends Component {
       });
       this.setState({isReady: true});
     }
-  renderInput({ input, label, type, meta: { touched, error, warning } }){
+
+  renderInput = ({ input, label, type, meta: { touched, error, warning } })=>{
     var hasError= false;
     if(error !== undefined){
       hasError= true;
@@ -55,6 +56,7 @@ class SimpleForm extends Component {
       </Item>
     )
   }
+
   render(){
      const { handleSubmit, reset } = this.props;
      if (!this.state.isReady) {
